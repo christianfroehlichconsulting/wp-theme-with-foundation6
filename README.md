@@ -11,5 +11,7 @@ npm install --global foundation-cli
 #To Start:
 npm install && foundation update
 
+foundation watch
+
 # Thank you to:
 Zurb Foundation

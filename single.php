@@ -1,6 +1,10 @@
 <?php
 /**
  * The template for displaying all single posts and attachments
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 get_header(); ?>

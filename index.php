@@ -8,12 +8,16 @@
  * e.g., it puts together the home page when no home.php file exists.
  *
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 get_header(); ?>
 
 <div class="row">
-	<?php get_template_part( 'php-parts/check-if-sidebar-exist' ); ?>
+	<?php get_template_part( 'parts/check-if-sidebar-exist' ); ?>
 
 	<?php if ( have_posts() ) : ?>
 

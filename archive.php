@@ -11,6 +11,9 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 get_header(); ?>

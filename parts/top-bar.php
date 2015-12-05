@@ -7,17 +7,7 @@
  * @since CFCDesignsystem 1.0.0
  */
 
-    $filenameheader = '/wp-content/themes/cfcdesignsystem/assets/images/logo-header.png';
-    
-    if (file_exists($filenameheader)) {
-        echo "<div class=\"row\"><div class=\"small-12 columns\"><img src=\"/$filenameheader\" alt=\"Christian Froehlich Multishop Berater\" /></div></div>";
-};
 ?>
-
-<div class="row">
-    <?php dynamic_sidebar("header-widgets"); ?>
-</div>
-
 <div class="top-bar-container contain-to-grid">
     <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area top-bar-<?php echo apply_filters( 'filter_mobile_nav_position', 'mobile_nav_position' ); ?>">

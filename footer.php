@@ -3,6 +3,10 @@
  * The template for displaying the footer
  *
  * Contains the closing of the "off-canvas-wrap" div and all content after.
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 ?>
@@ -30,6 +34,6 @@
 
 <?php wp_footer(); ?>
 <?php do_action( 'cfcdesignsystem_before_closing_body' ); ?>
-<?php get_template_part( 'php-parts/analyticstracking' ); ?>
+<?php get_template_part( 'parts/analyticstracking' ); ?>
 </body>
 </html>

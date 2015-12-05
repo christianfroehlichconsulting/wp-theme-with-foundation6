@@ -4,6 +4,10 @@
  *
  * The area of the page that contains both current comments
  * and the comment form.
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 if ( have_comments() ) :

@@ -3,6 +3,10 @@
  * The template for displaying the header
  *
  * Displays all of the head element and everything up until the "container" div.
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 ?>
@@ -50,7 +54,7 @@
 		endif;
 	?>
 
-	<?php get_template_part( 'php-parts/top-bar' ); ?>
+	<?php get_template_part( 'parts/top-bar' ); ?>
 
 <section class="container" role="document">
 	<?php do_action( 'cfcdesignsystem_after_header' ); ?>

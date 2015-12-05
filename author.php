@@ -1,6 +1,10 @@
 <?php
 /**
  * The template for displaying all authorpages
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 get_header ();
 ?>

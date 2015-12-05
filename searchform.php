@@ -1,6 +1,10 @@
 <?php
 /**
  * The template for displaying search form
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 do_action( 'cfcdesignsystem_before_searchform' ); ?>

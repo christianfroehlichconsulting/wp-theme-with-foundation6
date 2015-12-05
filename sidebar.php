@@ -1,6 +1,10 @@
 <?php
 /**
  * The sidebar containing the main widget area
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 ?>

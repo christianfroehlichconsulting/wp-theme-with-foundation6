@@ -3,6 +3,10 @@
  * The template part for displaying a message that posts cannot be found
  *
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 ?>

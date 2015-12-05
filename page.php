@@ -5,14 +5,18 @@
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages and that
  * other "pages" on your WordPress site will use a different template.
+ *
+ * @package WordPress
+ * @subpackage CFCDesignsystem
+ * @since CFCDesignsystem 1.0.0
  */
 
 get_header(); ?>
 
-<?php get_template_part( 'php-parts/featured-image' ); ?>
+<?php get_template_part( 'parts/featured-image' ); ?>
 
 <div class="row">
-	<?php get_template_part( 'php-parts/check-if-sidebar-exist' ); ?>
+	<?php get_template_part( 'parts/check-if-sidebar-exist' ); ?>
 	<?php do_action( 'cfcdesignsystem_before_content' ); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>

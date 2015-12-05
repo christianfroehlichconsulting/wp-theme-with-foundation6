@@ -14,7 +14,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.2.0",
     "gulp-concat": "^2.5.2",
-    "gulp-extname": "^1.2.0",
+    "gulp-extname": "^0.2.0",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-load-plugins": "^0.10.0",

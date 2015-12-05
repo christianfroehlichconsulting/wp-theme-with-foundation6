@@ -59,14 +59,14 @@ var PATHS = {
 // Delete the "dist" folder
 // This happens every time a build starts
 gulp.task('clean', function(done) {
-  rimraf('landingpage', done);
+  rimraf('dist', done);
 });
 
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 gulp.task('copy', function() {
   gulp.src(PATHS.assets)
-    .pipe(gulp.dest('landingpage/assets'));
+    .pipe(gulp.dest('dist/assets'));
 });
 
 // Copy page templates into finished HTML files
@@ -79,7 +79,7 @@ gulp.task('pages', function() {
       data: 'src/data/',
       helpers: 'src/helpers/'
     }))
-    .pipe(gulp.dest('landingpage'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('pages:reset', function(cb) {
@@ -90,7 +90,7 @@ gulp.task('pages:reset', function(cb) {
 
 gulp.task('styleguide', function(cb) {
   sherpa('src/styleguide/index.md', {
-    output: 'landingpage/styleguide.html',
+    output: 'dist/styleguide.html',
     template: 'src/styleguide/template.html'
   }, cb);
 });
@@ -120,7 +120,7 @@ gulp.task('sass', function() {
     .pipe(uncss)
     .pipe(minifycss)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('landingpage/assets/css'));
+    .pipe(gulp.dest('dist/assets/css'));
 });
 
 // Combine JavaScript into one file
@@ -136,7 +136,7 @@ gulp.task('javascript', function() {
     .pipe($.concat('app.js'))
     .pipe(uglify)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('landingpage/assets/js'));
+    .pipe(gulp.dest('dist/assets/js'));
 });
 
 // Copy images to the "dist" folder
@@ -148,7 +148,7 @@ gulp.task('images', function() {
 
   return gulp.src('src/assets/img/**/*')
     .pipe(imagemin)
-    .pipe(gulp.dest('landingpage/assets/img'));
+    .pipe(gulp.dest('dist/assets/img'));
 });
 
 // Build the "dist" folder by running all of the above tasks
@@ -159,7 +159,7 @@ gulp.task('build', function(done) {
 // Start a server with LiveReload to preview the site in
 gulp.task('server', ['build'], function() {
   browser.init({
-    server: 'landingpage', port: PORT
+    server: 'dist', port: PORT
   });
 });
 

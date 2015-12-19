@@ -39,24 +39,39 @@
 	<body <?php body_class(); ?>>
 	<?php do_action( 'cfcdesignsystem_after_body' ); ?>
 
-	<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
-
-	<div class="off-canvas-wrap" data-offcanvas>
-	<div class="inner-wrap">
+	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) : ?>
+	<div class="off-canvas-wrapper">
+		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		<?php get_template_part( 'parts/mobile-off-canvas' ); ?>
 	<?php endif; ?>
 
 	<?php do_action( 'cfcdesignsystem_layout_start' ); ?>
 
-	<?php
+	<header id="masthead" class="site-header" role="banner">
+		<div class="title-bar" data-responsive-toggle="site-navigation">
+			<button class="menu-icon" type="button" data-toggle="offCanvas"></button>
+			<div class="title-bar-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			</div>
+		</div>
 
-		if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'offcanvas' ) :
-		get_template_part( 'parts/off-canvas-menu' );
-		endif;
-	?>
+		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+			<div class="top-bar-left show-for-medium">
+				<ul class="menu">
+					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
+				</ul>
+			</div>
+			<div class="top-bar-right">
+				<?php cfcdesignsystem_top_bar_r(); ?>
 
-	<?php get_template_part( 'parts/top-bar' ); ?>
+				<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
+					<?php get_template_part( 'parts/mobile-top-bar' ); ?>
+				<?php endif; ?>
+			</div>
+		</nav>
+	</header>
 
-<section class="container" role="document">
+<section class="container">
 	<?php do_action( 'cfcdesignsystem_after_header' ); ?>
 
 	<div class="row"><div class="small-12 columns"><?php if ( function_exists('yoast_breadcrumb') ) 

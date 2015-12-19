@@ -74,29 +74,12 @@ function cfcdesignsystem_cleanup_head() {
 
 	// Emoji styles.
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-
-	// Remove WP version from css.
-	add_filter( 'style_loader_src', 'cfcdesignsystem_remove_wp_ver_css_js', 9999 );
-
-	// Remove WP version from scripts.
-	add_filter( 'script_loader_src', 'cfcdesignsystem_remove_wp_ver_css_js', 9999 );
-
 }
 endif;
 
 // Remove WP version from RSS.
 if ( ! function_exists( 'cfcdesignsystem_remove_rss_version' ) ) :
 function cfcdesignsystem_remove_rss_version() { return ''; }
-endif;
-
-if ( ! function_exists( 'cfcdesignsystem_remove_wp_ver_css_js' ) ) :
-
-// Remove WP version from scripts.
-function cfcdesignsystem_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) ) {
-		$src = remove_query_arg( 'ver', $src ); }
-	return $src;
-}
 endif;
 
 // Remove injected CSS for recent comments widget.
@@ -147,58 +130,59 @@ if ( ! class_exists( 'CFCdesignsystem_img_rebuilder' ) ) :
 	  }
 
 	  public function recreate_img_tag( $tag ) {
-	    // Supress SimpleXML errors
-	    libxml_use_internal_errors( true );
+        // Supress SimpleXML errors
+        libxml_use_internal_errors( true );
 
-	    try {
-	      $x = new SimpleXMLElement( $tag );
+        try {
+            $x = new SimpleXMLElement( $tag );
 
-	      // We only want to rebuild img tags
-	      if ( $x->getName() == 'img' ) {
+            // We only want to rebuild img tags
+            if ( $x->getName() == 'img' ) {
 
-	        // Get the attributes I'll use in the new tag
-	        $alt        = (string) $x->attributes()->alt;
-	        $src        = (string) $x->attributes()->src;
-	        $classes    = (string) $x->attributes()->class;
-	        $class_segs = explode(' ', $classes);
+                // Get the attributes I'll use in the new tag
+                $alt        = (string) $x->attributes()->alt;
+                $src        = (string) $x->attributes()->src;
+                $classes    = (string) $x->attributes()->class;
+                $class_segs = explode(' ', $classes);
 
-	        // All images have a source
-	        $img = '<img src="' . $src . '"';
+                // All images have a source
+                $img = '<img src="' . $src . '"';
 
-	        // If alt not empty, add it
-	        if ( ! empty( $alt ) ) {
-	          $img .= ' alt="' . $alt . '"';
-	        }
+                // If alt not empty, add it
+                if ( ! empty( $alt ) ) {
+                  $img .= ' alt="' . $alt . '"';
+                }
 
-	        // Only alignment classes are allowed
-	        $allowed_classes = array(
-	          'alignleft',
-	          'alignright',
-	          'alignnone',
-	          'aligncenter',
-	        );
+                // Filter Through Class Segments & Find Alignment Classes and Size Classes
+                $filtered_classes = array();
 
-		if ( $filtered_classes = array_intersect( $class_segs, $allowed_classes ) ) {
-			$img .= ' class="' . implode(' ', $filtered_classes) . '"';
-		}
+                foreach ( $class_segs as $class_seg ) {
+                    if ( substr( $class_seg, 0, 5 ) === 'align' || substr( $class_seg, 0, 4 ) === 'size' ) {
+                        $filtered_classes[] = $class_seg;
+                    }
+                }
 
-	        // Finish up the img tag
-	        $img .= ' />';
+                // Add Rebuilt Classes and Close The Tag
+                if ( count( $filtered_classes ) ) {
+                    $img .= ' class="' . implode( $filtered_classes, ' ' ) . '" />';
+                } else {
+                    $img .= ' />';
+                }
 
-	        return $img;
-	      }
-	    }
+                return $img;
+            }
+        }
 
-	    catch ( Exception $e ) {
-				if ( defined('WP_DEBUG') && WP_DEBUG ) {
-				        if ( defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY ) {
-				        	echo 'Caught exception: ',  $e->getMessage(), "\n";
-				        }
-				}
-			}
+        catch ( Exception $e ) {
+                if ( defined('WP_DEBUG') && WP_DEBUG ) {
+                        if ( defined('WP_DEBUG_DISPLAY') && WP_DEBUG_DISPLAY ) {
+                            echo 'Caught exception: ',  $e->getMessage(), "\n";
+                        }
+                }
+            }
 
-	    // Tag not an img, so just return it untouched
-	    return $tag;
+        // Tag not an img, so just return it untouched
+        return $tag;
 	  }
 
 	  /**

@@ -16,13 +16,11 @@
 
 get_header(); ?>
 
-<div class="row">
-	<?php get_template_part( 'parts/check-if-sidebar-exist' ); ?>
-
+<div id="page" role="main">
+	<article class="main-content">
 	<?php if ( have_posts() ) : ?>
 
-		<?php do_action( 'cfcdesignsystem_before_content' ); ?>
-
+		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'content', get_post_format() ); ?>
 		<?php endwhile; ?>
@@ -30,22 +28,19 @@ get_header(); ?>
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 
-		<?php do_action( 'cfcdesignsystem_before_pagination' ); ?>
+		<?php endif; // End have_posts() check. ?>
 
-	<?php endif;?>
+		<?php /* Display navigation to next/previous pages when applicable */ ?>
+		<?php if ( function_exists( 'cfcdesignsystem_pagination' ) ) { cfcdesignsystem_pagination(); } else if ( is_paged() ) { ?>
+			<nav id="post-nav">
+				<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'cfcdesignsystem' ) ); ?></div>
+				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'cfcdesignsystem' ) ); ?></div>
+			</nav>
+		<?php } ?>
 
-
-
-	<?php if ( function_exists( 'cfcdesignsystem_pagination' ) ) { cfcdesignsystem_pagination(); } else if ( is_paged() ) { ?>
-		<nav id="post-nav">
-			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'cfcdesignsystem' ) ); ?></div>
-			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'cfcdesignsystem' ) ); ?></div>
-		</nav>
-	<?php } ?>
-
-	<?php do_action( 'cfcdesignsystem_after_content' ); ?>
-
-	</div>
+	</article>
 	<?php get_sidebar(); ?>
+
 </div>
+
 <?php get_footer(); ?>

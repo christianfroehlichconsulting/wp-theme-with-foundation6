@@ -108,7 +108,7 @@ gulp.task('sass', function() {
 
   var minifycss = $.if(isProduction, $.minifyCss());
 
-  return gulp.src('src/assets/scss/app.scss')
+  return gulp.src('src/assets/scss/cfc-ci.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass

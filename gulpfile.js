@@ -4,11 +4,19 @@
 var $        = require('gulp-load-plugins')();
 var argv     = require('yargs').argv;
 var browser  = require('browser-sync');
+//var browserSync = require('browser-sync').create(); //Neue Version
 var gulp     = require('gulp');
 var panini   = require('panini');
 var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
 var sherpa   = require('style-sherpa');
+
+
+var merge    = require('merge-stream');
+var colors   = require('colors');
+var phpcs    = require('gulp-phpcs');
+var phpcbf   = require('gulp-phpcbf');
+var gutil    = require('gulp-util');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -56,6 +64,19 @@ var PATHS = {
     'bower_components/foundation-sites/js/foundation.tooltip.js',
     'src/assets/js/**/*.js',
     'src/assets/js/app.js'
+  ],
+  pkg: [
+    '**/*',
+    '!**/node_modules/**',
+    '!**/components/**',
+    '!**/scss/**',
+    '!**/bower.json',
+    '!**/Gruntfile.js',
+    '!**/package.json',
+    '!**/composer.json',
+    '!**/composer.lock',
+    '!**/codesniffer.ruleset.xml',
+    '!**/packaged/*'
   ]
 };
 
@@ -152,6 +173,40 @@ gulp.task('images', function() {
   return gulp.src('src/assets/img/**/*')
     .pipe(imagemin)
     .pipe(gulp.dest('dist/assets/img'));
+});
+
+//Package task
+gulp.task('package', ['build'], function() {
+var fs = require('fs');
+var pkg = JSON.parse(fs.readFileSync('./package.json'));
+var time = $.util.date(new Date(), '_yyyy-mm-dd_HH-MM');
+var title = pkg.name + time + '.zip';
+
+return gulp.src(PATHS.pkg)
+ .pipe($.zip(title))
+ .pipe(gulp.dest('packaged'));
+});
+
+
+gulp.task('phpcs', function() {
+  return gulp.src(['*.php'])
+    .pipe(phpcs({
+      bin: 'wpcs/vendor/bin/phpcs',
+      standard: './codesniffer.ruleset.xml',
+      showSniffCode: true,
+    }))
+    .pipe(phpcs.reporter('log'));
+});
+
+gulp.task('phpcbf', function () {
+  return gulp.src(['*.php'])
+  .pipe(phpcbf({
+    bin: 'wpcs/vendor/bin/phpcbf',
+    standard: './codesniffer.ruleset.xml',
+    warningSeverity: 0
+  }))
+  .on('error', gutil.log)
+  .pipe(gulp.dest('.'));
 });
 
 // Build the "dist" folder by running all of the above tasks

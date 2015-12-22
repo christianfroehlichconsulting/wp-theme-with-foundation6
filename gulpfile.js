@@ -4,14 +4,11 @@
 var $        = require('gulp-load-plugins')();
 var argv     = require('yargs').argv;
 var browser  = require('browser-sync');
-//var browserSync = require('browser-sync').create(); //Neue Version
 var gulp     = require('gulp');
 var panini   = require('panini');
 var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
 var sherpa   = require('style-sherpa');
-
-
 var merge    = require('merge-stream');
 var colors   = require('colors');
 var phpcs    = require('gulp-phpcs');

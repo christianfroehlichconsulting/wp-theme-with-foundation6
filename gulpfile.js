@@ -1,3 +1,6 @@
+/*jslint node: true */
+"use strict";
+
 var $        = require('gulp-load-plugins')();
 var argv     = require('yargs').argv;
 var browser  = require('browser-sync');

@@ -5,7 +5,10 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build --production"
+    "build": "gulp build --production",
+    "package": "gulp package",
+    "phpcs": "gulp phpcs",
+    "phpcbf": "gulp phpcbf"
   },
   "author": "Christian Fröhlich <christian.froehlich.consulting@gmail.com>",
   "license": "MIT",
@@ -27,6 +30,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-uncss": "^1.0.1",
     "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.0.2",
     "merge-stream": "^1.0.0",
     "panini": "^1.0.0",
     "rimraf": "^2.4.3",

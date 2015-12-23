@@ -14,6 +14,7 @@ var colors   = require('colors');
 var phpcs    = require('gulp-phpcs');
 var phpcbf   = require('gulp-phpcbf');
 var gutil    = require('gulp-util');
+var zip      = require('gulp-zip');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -65,7 +66,7 @@ var PATHS = {
   pkg: [
     '**/*',
     '!**/node_modules/**',
-    '!**/components/**',
+    '!**/bower_components/**',
     '!**/scss/**',
     '!**/bower.json',
     '!**/Gruntfile.js',
@@ -174,17 +175,15 @@ gulp.task('images', function() {
 
 //Package task
 gulp.task('package', ['build'], function() {
-var fs = require('fs');
-var pkg = JSON.parse(fs.readFileSync('./package.json'));
-var time = $.util.date(new Date(), '_yyyy-mm-dd_HH-MM');
-var title = pkg.name + time + '.zip';
-
-return gulp.src(PATHS.pkg)
- .pipe($.zip(title))
- .pipe(gulp.dest('packaged'));
+	var time = $.util.date(new Date(), '_yyyy-mm-dd_HH-MM');
+	var title = 'cfc-startertheme' + time + '.zip';
+	
+	return gulp.src(PATHS.pkg)
+	 .pipe(zip(title))
+	 .pipe(gulp.dest('packaged'));
 });
 
-
+//Codesniffer
 gulp.task('phpcs', function() {
   return gulp.src(['*.php'])
     .pipe(phpcs({

@@ -71,8 +71,8 @@
 		</nav>
 	</header>
 
-<section class="container">
-	<?php do_action( 'cfcdesignsystem_after_header' ); ?>
+	<section class="container">
+		<?php do_action( 'cfcdesignsystem_after_header' ); ?>
 
-	<?php if ( function_exists('yoast_breadcrumb') ) 
+		<?php if ( function_exists('yoast_breadcrumb') ) 
 {yoast_breadcrumb('<div class="row"><div class="small-12 columns"><p id="breadcrumbs" class="breadcrumbs">','</p></div></div>');} ?>

@@ -47,12 +47,6 @@ function custom_wp_mail_from_name( $original_email_from ) {
 /** Add Nav Options to Customer */
 require_once( 'library/custom-nav.php' );
 
-/** Change WP's sticky post class */
-require_once( 'library/sticky-posts.php' );
-
-/** If your site requires protocol relative url's for theme assets, uncomment the line below */
-// require_once( 'library/protocol-relative-theme-assets.php' );
-
 //add hatom data
 function add_mod_hatom_data($content) {
 	$t = get_the_modified_time('F jS, Y');
@@ -64,6 +58,8 @@ function add_mod_hatom_data($content) {
 	return $content;
 }
 add_filter('the_content', 'add_mod_hatom_data');
+/** Change WP's sticky post class */
+require_once( 'library/sticky-posts.php' );
 
 function add_google_fonts() {
 	wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Megrim');
@@ -71,5 +67,7 @@ function add_google_fonts() {
 	wp_enqueue_style( 'googleFonts');
 }
 add_action('wp_print_styles', 'add_google_fonts');
+/** If your site requires protocol relative url's for theme assets, uncomment the line below */
+// require_once( 'library/protocol-relative-theme-assets.php' );
 
 ?>

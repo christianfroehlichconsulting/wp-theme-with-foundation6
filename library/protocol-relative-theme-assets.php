@@ -2,8 +2,7 @@
 /**
  * Protocol Relative Theme Assets
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.1.0
  */
 
@@ -87,7 +86,5 @@ if ( ! class_exists( 'CFCdesignsystem_protocol_relative_theme_assets' ) ) :
 		}
 	}
 
-	$CFCdesignsystem_protocol_relative_theme_assets = new CFCdesignsystem_protocol_relative_theme_assets;
+	$cfcdesignsystem_protocol_relative_theme_assets = new CFCdesignsystem_protocol_relative_theme_assets;
 endif;
-
-?>

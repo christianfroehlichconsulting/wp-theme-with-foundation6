@@ -4,8 +4,7 @@
  *
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 

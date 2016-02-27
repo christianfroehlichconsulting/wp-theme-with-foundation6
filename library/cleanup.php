@@ -2,8 +2,7 @@
 /**
  * Clean up WordPress defaults
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -244,7 +243,7 @@ if ( ! class_exists( 'CFCdesignsystem_img_rebuilder' ) ) :
 	  }
 	}
 
-	$CFCdesignsystem_img_rebuilder = new CFCdesignsystem_img_rebuilder;
+	$cfcdesignsystem_img_rebuilder = new CFCdesignsystem_img_rebuilder;
 
 endif;
 
@@ -253,4 +252,3 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 add_action('woocommerce_before_main_content', 'cfcdesignsystem_before_content', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 add_action('woocommerce_after_main_content', 'cfcdesignsystem_after_content', 10);
-?>

@@ -2,8 +2,7 @@
 /**
  * Register widget areas
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -32,4 +31,3 @@ function cfcdesignsystem_sidebar_widgets() {
 
 add_action( 'widgets_init', 'cfcdesignsystem_sidebar_widgets' );
 endif;
-?>

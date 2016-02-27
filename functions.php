@@ -10,8 +10,7 @@
  * hooks in WordPress to change core functionality.
  *
  * @link https://codex.wordpress.org/Theme_Development
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -69,5 +68,3 @@ function add_google_fonts() {
 add_action('wp_print_styles', 'add_google_fonts');
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
-
-?>

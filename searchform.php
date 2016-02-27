@@ -2,8 +2,7 @@
 /**
  * The template for displaying search form
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -21,4 +20,4 @@ do_action( 'cfcdesignsystem_before_searchform' ); ?>
 		<?php do_action( 'cfcdesignsystem_searchform_after_search_button' ); ?>
 	</div>
 </form>
-<?php do_action( 'cfcdesignsystem_after_searchform' ); ?>
+<?php do_action( 'cfcdesignsystem_after_searchform' );

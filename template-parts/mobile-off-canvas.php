@@ -2,14 +2,13 @@
 /**
  * Template part for off canvas menu
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
 ?>
 
-<nav class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left" data-accordion-menu role="navigation">
+<nav class="off-canvas position-left" id="mobile-menu" data-off-canvas data-position="left" role="navigation">
   <?php cfcdesignsystem_mobile_nav(); ?>
 </nav>
 

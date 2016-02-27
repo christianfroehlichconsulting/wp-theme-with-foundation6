@@ -2,8 +2,7 @@
 /**
  * Register theme support for languages, menus, post-thumbnails, post-formats etc.
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -33,4 +32,3 @@ function cfcdesignsystem_theme_support() {
 
 add_action( 'after_setup_theme', 'cfcdesignsystem_theme_support' );
 endif;
-?>

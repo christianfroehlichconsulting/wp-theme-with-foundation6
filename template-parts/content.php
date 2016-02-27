@@ -4,8 +4,7 @@
  *
  * Used for both single and index/archive/search.
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 

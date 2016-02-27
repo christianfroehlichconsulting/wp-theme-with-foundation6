@@ -2,8 +2,7 @@
 /**
  * Foundation PHP template
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -189,5 +188,3 @@ class CFCdesignsystem_Comments extends Walker_Comment{
     <?php }
 }
 endif;
-
-?>

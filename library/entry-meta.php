@@ -2,8 +2,7 @@
 /**
  * Entry meta information for posts
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -13,4 +12,3 @@ if ( ! function_exists( 'cfcdesignsystem_entry_meta' ) ) :
 		echo '<p class="byline author">'. __( 'Written by', 'cfcdesignsystem' ) .' <a href="'. get_author_posts_url( get_the_author_meta( 'ID' ) ) .'" rel="author" class="fn">'. get_the_author() .'</a></p>';
 	}
 endif;
-?>

@@ -2,8 +2,7 @@
 /**
  * The sidebar containing the main widget area
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 

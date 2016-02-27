@@ -5,8 +5,7 @@
  * The area of the page that contains both current comments
  * and the comment form.
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -129,4 +128,3 @@ if ( comments_open() ) :
 <?php
 	endif; // If you delete this the sky will fall on your head.
 	endif; // If you delete this the sky will fall on your head.
-?>

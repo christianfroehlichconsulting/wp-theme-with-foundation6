@@ -2,8 +2,7 @@
 /**
  * The template for displaying all single posts and attachments
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -44,4 +43,4 @@ get_header(); ?>
 <?php do_action( 'cfcdesignsystem_after_content' ); ?>
 <?php get_sidebar(); ?>
 </div>
-<?php get_footer(); ?>
+<?php get_footer();

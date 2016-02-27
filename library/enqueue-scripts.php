@@ -5,8 +5,7 @@
  * Learn more about enqueue_script: {@link https://codex.wordpress.org/Function_Reference/wp_enqueue_script}
  * Learn more about enqueue_style: {@link https://codex.wordpress.org/Function_Reference/wp_enqueue_style }
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -14,7 +13,7 @@ if ( ! function_exists( 'cfcdesignsystem_scripts' ) ) :
 	function cfcdesignsystem_scripts() {
 
 	// Enqueue the main Stylesheet.
-	wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/cfc-ci.css', array(), '2.2.0', 'all' );
+	wp_enqueue_style( 'main-stylesheet', get_stylesheet_directory_uri() . '/dist/assets/css/cfc-ci.css', array(), '2.3.0', 'all' );
 
 	// Deregister the jquery version bundled with WordPress.
 	wp_deregister_script( 'jquery' );
@@ -25,7 +24,7 @@ if ( ! function_exists( 'cfcdesignsystem_scripts' ) ) :
 
 	// If you'd like to cherry-pick the foundation components you need in your project, head over to gulpfile.js and see lines 35-54.
 	// It's a good idea to do this, performance-wise. No need to load everything if you're just going to use the grid anyway, you know :)
-	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', array(), '2.2.0', 'all' );
+	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/app.js', array(), '2.3.0', 'all' );
 
 	// Add the comment-reply library on pages where it is necessary
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -36,5 +35,3 @@ if ( ! function_exists( 'cfcdesignsystem_scripts' ) ) :
 
 	add_action( 'wp_enqueue_scripts', 'cfcdesignsystem_scripts' );
 endif;
-
-?>

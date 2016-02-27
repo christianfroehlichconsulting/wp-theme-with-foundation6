@@ -2,8 +2,7 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @package WordPress
- * @subpackage CFCDesignsystem
+ * @package CFCDesignsystem
  * @since CFCDesignsystem 1.0.0
  */
 
@@ -32,4 +31,4 @@ get_header(); ?>
 	</div>
 	<?php get_sidebar(); ?>
 </div>
-<?php get_footer(); ?>
+<?php get_footer();

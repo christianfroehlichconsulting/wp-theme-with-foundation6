@@ -168,7 +168,7 @@ As you've probably noticed in the examples above, you have access to a small, me
 
 # Typography
 
-<p class="lead">The Arlo apps use Morebi Rounded for headings and paragraph text.</p>
+<p class="lead">This design uses Helvetica Neue for headings and paragraph text.</p>
 
 ---
 
@@ -304,11 +304,9 @@ Form elements in Foundation are styled based on their type attribute rather than
     <div class="large-6 columns">
       <div class="row collapse">
         <label>Label</label>
-        <div class="small-9 columns">
-          <input type="text" placeholder="placeholder">
-        </div>
-        <div class="small-3 columns">
-          <span class="postfix">.com</span>
+        <div class="input-group">
+          <input class="input-group-field" type="text" placeholder="placeholder">
+          <span class="input-group-label">.com</span>
         </div>
       </div>
     </div>
@@ -342,4 +340,16 @@ Form elements in Foundation are styled based on their type attribute rather than
     </div>
   </div>
 </form>
+```
+
+
+
+# New Section
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora omnis suscipit id ut laborum recusandae molestias hic aliquid **expedita!** [Non dicta](zurb.com), autem obcaecati error, id ab voluptate unde culpa nulla.
+
+```html_example
+<a href="#" class="button">Button</a>
+<a href="#" class="button">Button</a>
+<a href="#" class="button">Button</a>
 ```

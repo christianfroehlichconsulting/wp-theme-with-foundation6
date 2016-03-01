@@ -2,8 +2,7 @@
 WP Starter Theme with foundation 6 and other cool stuff to be able to start your design fast
 
 # Modifications:
-- Foundation: Browser Compatibility 
-
+- Foundation: some Addons installed in package.json
 
 #Requirements:
 npm install --global foundation-cli

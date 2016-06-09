@@ -1,7 +1,17 @@
 {
-  "name": "wp-starter-theme-with-foundation6",
-  "version": "1.0.0",
-  "description": "Wordpress Starter Theme with Foundation for Sites.",
+  "name": "cfcdesignsystem",
+  "title": "CFCDesignsystem",
+  "version": "2.4.0",
+  "description": "CFCDesignsystem is a WordPress starter theme based on Foundation 6 by Zurb",
+  "keywords": [
+    "CFCDesignsystem",
+    "starter theme",
+    "Foundation",
+    "semantic",
+    "mobile first",
+    "customizable",
+    "responsive"
+  ],
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
